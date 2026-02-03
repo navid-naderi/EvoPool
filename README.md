@@ -28,7 +28,7 @@ Running `gen_data.sh` does the following:
 - Downloading UniClust30 MSA groups from OpenProteinSet containing A3M files
 - Extracting residue-level embeddings for all sequences in each A3M
 
-This script will create directories `./openproteinset_<num_MSAs>/` (containing downloaded A3M files under uniclust30/<group>/a3m/…) and `./openproteinset_<num_MSAs>_<plm>/` (containing extracted embeddings under a parallel tree). For each A3M file, embeddings are saved as `.../<msa_name>_embeds/<sequence_id>.npy`, where each `.npy` is an array of shape `[N, D]` (token embeddings). The variables `num_MSAs` (number of downloaded MSAs) and `plm` (PLM type) can be modified directly in `gen_data.sh`. 
+This script will create directories `./openproteinset_<num_MSAs>/` (containing downloaded A3M files under `uniclust30/<group>/a3m/...`) and `./openproteinset_<num_MSAs>_<plm>/` (containing extracted embeddings under a parallel tree). For each A3M file, embeddings are saved as `.../<msa_name>_embeds/<sequence_id>.npy`, where each `.npy` is an array of shape `[N, D]` (token embeddings). The variables `num_MSAs` (number of downloaded MSAs) and `plm` (PLM type) can be modified directly in `gen_data.sh`. 
 
 ## Self-Supervised Primal-Dual Training
 ```
