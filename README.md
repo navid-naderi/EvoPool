@@ -25,7 +25,7 @@ bash gen_data.sh
 ```
 
 Running `gen_data.sh` does the following:
-- Downloading exactly N UniClust30/OpenProteinSet MSA groups containing A3M files
+- Downloading UniClust30 MSA groups from OpenProteinSet containing A3M files
 - Extracting residue-level embeddings for all sequences in each A3M
 
 This script will create directories `./openproteinset_<num_MSAs>/` (containing downloaded A3M files under uniclust30/<group>/a3m/…) and `./openproteinset_<num_MSAs>_<plm>/` (containing extracted embeddings under a parallel tree). For each A3M file, embeddings are saved as `.../<msa_name>_embeds/<sequence_id>.npy`, where each `.npy` is an array of shape `[N, D]` (token embeddings). The variables `num_MSAs` (number of downloaded MSAs) and `plm` (PLM type) can be modified directly in `gen_data.sh`. 
@@ -48,19 +48,15 @@ The script trains two torch neural network models:
 The script also logs training curves to Weights & Biases and saves checkpoints to `./checkpoints/<wandb_project>/<run_id>/all_models_lambdas.pt`. The checkpoint includes: `swe_msa_length` weights, `swe_query` weights, and `MSA_lambdas` learned per-MSA Lagrangian dual multipliers.
 
 ## ProteinGym Evaluation (Zero-Shot DMS Substitutions)
-
-TBD
-
-## Key Dependencies
-- torch
-- numpy, scipy, pandas, scikit-learn, tqdm
-- wandb
-- biopython
-- boto3
-- pot
-- transformers
-- esm
-- E1
+```
+python eval_evopool_proteingym.py
+```
+This script:
+- loads a trained checkpoint from `./checkpoints/<wandb_project>/<run_id>/all_models_lambdas.pt`
+- iterates over ProteinGym DMS substitution assays
+- uses homolog sequences from ProteinGym-provided MSAs
+- computes pooled embeddings and scores variants using cosine similarity
+- writes per-assay results to `./results/dms/`
 
 ## Citation
 
