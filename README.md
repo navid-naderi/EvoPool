@@ -14,7 +14,7 @@ Protein language models (PLMs) encode amino acid sequences into residue-level em
 Create a new virtual Conda environment, called `evopool`, with the required libraries using the following commands:
 
 ```
-conda create -n evopool python=3.10
+conda create -n evopool python=3.12
 conda activate evopool
 pip install -r requirements.txt
 ```
