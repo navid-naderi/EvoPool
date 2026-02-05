@@ -1,6 +1,6 @@
 # EvoPool: Evolution-Guided Pooling of Protein Language Model Embeddings
 
-This repository contains the implementation of EvoPool, an evolution-guided pooling method for protein language model (PLM) embeddings. The code supports:
+This repository contains the implementation of [EvoPool, an evolution-guided pooling method for protein language model (PLM) embeddings](https://www.biorxiv.org/content/10.64898/2026.02.02.703349v1). The code supports:
 - Generating training data from OpenProteinSet / UniClust30 MSAs (download + embedding extraction);
 - Self-supervised primal-dual training of EvoPool (contrastive objective + uniformity constraint); and,
 - Zero-shot evaluation on ProteinGym DMS substitutions using cosine similarity between pooled wildtype and variant embeddings.
@@ -67,6 +67,7 @@ If you make use of this repository, please cite our paper using the following Bi
   author={NaderiAlizadeh, Navid and Singh, Rohit},
   journal={bioRxiv},
   year={2026},
+  doi={10.64898/2026.02.02.703349},
   publisher={Cold Spring Harbor Laboratory}
 }
 ```
